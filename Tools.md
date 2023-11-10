@@ -10,5 +10,3 @@
 8. **LocalizeDirect or Weblate** - Localization platforms to manage and streamline the translation process.
 9. **Discord or Slack** - Communication tools for team collaboration and community engagement.
 10. **Adobe Audition or Audacity** - For audio editing and refining sound assets.
-
-These tools will provide a strong foundation for the development, asset creation, team collaboration, and project management of "A Sea of Monsters."
