@@ -23,6 +23,7 @@ Thank you for your interest in contributing to "A Sea of Monsters"! This documen
 
 ### Coding Standards
 - Follow the [Godot GDScript style guide](https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_styleguide.html).
+- Follow the [Guidlines] written here
 - Comment your code where necessary.
 
 ### Assets
