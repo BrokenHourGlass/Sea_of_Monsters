@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbsh87mmkjnkm"]
+
+[ext_resource type="Script" path="res://scripts/characters/player/player_controller.gd" id="1_tum6a"]
+[ext_resource type="Texture2D" uid="uid://c5at8x2mt2g4x" path="res://assets/placeholders/ship_placholder.png" id="2_qniil"]
+[ext_resource type="Script" path="res://scenes/ui/character_speed_slider.gd" id="3_aq33o"]
+
+[node name="Player_container" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(539, 417)
+script = ExtResource("1_tum6a")
+rotation_acceleration = 5.0
+max_rotation_speed = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+rotation = 1.5708
+texture = ExtResource("2_qniil")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+rotation = 1.5708
+polygon = PackedVector2Array(-31, 31, -3, -30, 31, 31)
+
+[node name="Player_controls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="speed_slider" type="VSlider" parent="Player_controls"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("3_aq33o")
+
+[connection signal="value_changed" from="Player_controls/speed_slider" to="CharacterBody2D" method="_on_speed_slider_value_changed"]
