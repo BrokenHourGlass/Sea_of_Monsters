@@ -23,8 +23,10 @@ polygon = PackedVector2Array(-31, 31, -3, -30, 31, 31)
 [node name="Player_controls" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 1134.0
 offset_right = 1150.0
 offset_bottom = 650.0
+size_flags_horizontal = 8
 
 [node name="speed_slider" type="VSlider" parent="Player_controls"]
 layout_mode = 1
