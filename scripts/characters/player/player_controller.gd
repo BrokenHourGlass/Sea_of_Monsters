@@ -16,7 +16,6 @@ func _on_speed_slider_value_changed(value):
 	move_speed = max_move_speed * (value / 100.0)
 
 func _unhandled_input(event):
-	print("input unhandled")
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			touch_positions[event.index] = event.position

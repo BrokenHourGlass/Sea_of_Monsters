@@ -6,21 +6,26 @@
 
 [node name="Player_container" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(539, 417)
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(577, 324)
 script = ExtResource("1_tum6a")
 rotation_acceleration = 5.0
 max_rotation_speed = 5.0
+metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
 rotation = 1.5708
 texture = ExtResource("2_qniil")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
 rotation = 1.5708
 polygon = PackedVector2Array(-31, 31, -3, -30, 31, 31)
 
-[node name="Player_controls" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Player_controls" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1134.0
@@ -28,7 +33,7 @@ offset_right = 1150.0
 offset_bottom = 650.0
 size_flags_horizontal = 8
 
-[node name="speed_slider" type="VSlider" parent="Player_controls"]
+[node name="speed_slider" type="VSlider" parent="CanvasLayer/Player_controls"]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -39,4 +44,4 @@ grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("3_aq33o")
 
-[connection signal="value_changed" from="Player_controls/speed_slider" to="CharacterBody2D" method="_on_speed_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Player_controls/speed_slider" to="Player" method="_on_speed_slider_value_changed"]
