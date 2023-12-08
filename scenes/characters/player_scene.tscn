@@ -14,6 +14,7 @@ max_rotation_speed = 5.0
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.75, 0.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 rotation = 1.5708

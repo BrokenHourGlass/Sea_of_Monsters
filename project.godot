@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Sea Of Monsters"
-config/features=PackedStringArray("4.1", "Mobile")
+config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://scripts/managers/GameManager.gd"
 
 [input]
 

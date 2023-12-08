@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfekc7bl3a220"]
+
+[ext_resource type="Texture2D" uid="uid://8e32f6axin8e" path="res://assets/placeholders/world_test_map.png" id="1_f4hpo"]
+
+[node name="WorldMap" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f4hpo")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(613, 337)

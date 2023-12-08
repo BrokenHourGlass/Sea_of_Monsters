@@ -1,88 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://w0m7s7a18vnt"]
+[gd_scene load_steps=8 format=3 uid="uid://w0m7s7a18vnt"]
 
 [ext_resource type="PackedScene" uid="uid://bbsh87mmkjnkm" path="res://scenes/characters/player_scene.tscn" id="1_2p3mv"]
-[ext_resource type="Texture2D" uid="uid://dqqc7i2d57185" path="res://icon.svg" id="2_kpjr5"]
+[ext_resource type="Texture2D" uid="uid://8e32f6axin8e" path="res://assets/placeholders/world_test_map.png" id="1_fv3wy"]
 [ext_resource type="Script" path="res://scripts/ui/MiniMap.gd" id="3_62cml"]
+[ext_resource type="Script" path="res://scripts/ui/ResourceUI.gd" id="4_x4jjk"]
+[ext_resource type="Texture2D" uid="uid://bntfspum6mnpw" path="res://assets/placeholders/COIN.png" id="5_28d6c"]
+[ext_resource type="Texture2D" uid="uid://cecppp58h34cl" path="res://assets/placeholders/FOOD.png" id="6_btqcy"]
+[ext_resource type="Texture2D" uid="uid://bg1wd3njmmad7" path="res://assets/placeholders/SAILORS.png" id="7_53tag"]
 
-[node name="test_scene" type="Node2D"]
+[node name="test_scene" type="Node"]
 
 [node name="Map_container" type="Node2D" parent="."]
 position = Vector2(172, 293)
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(172, 293)
-rotation = -0.362195
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(1134, 2680)
-rotation = -0.362195
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(413, 1425)
-rotation = -2.57768
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon4" type="Sprite2D" parent="."]
-position = Vector2(3035, 1745)
-rotation = -1.83961
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon5" type="Sprite2D" parent="."]
-position = Vector2(1914, 933)
-rotation = -2.40466
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon6" type="Sprite2D" parent="."]
-position = Vector2(2523, 378)
-rotation = -2.40466
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon7" type="Sprite2D" parent="."]
-position = Vector2(1904, 1910)
-rotation = -3.94146
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon9" type="Sprite2D" parent="."]
-position = Vector2(2112, 2636)
-rotation = -2.64947
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon10" type="Sprite2D" parent="."]
-position = Vector2(2524.23, 2394.04)
-rotation = -2.64947
-scale = Vector2(0.341686, 0.341686)
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon11" type="Sprite2D" parent="."]
-position = Vector2(417, 2456)
-rotation = -3.65574
-scale = Vector2(1.80439, 1.80439)
-texture = ExtResource("2_kpjr5")
-
-[node name="Icon8" type="Sprite2D" parent="."]
-position = Vector2(2647, 2728)
-rotation = -3.94146
-scale = Vector2(4.1108, 4.1108)
-texture = ExtResource("2_kpjr5")
+[node name="Sprite2D" type="Sprite2D" parent="Map_container"]
+position = Vector2(20365.8, 18971)
+scale = Vector2(32.11, 32.11)
+texture = ExtResource("1_fv3wy")
 
 [node name="Player_container" parent="." instance=ExtResource("1_2p3mv")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+[node name="MiniMap" type="SubViewportContainer" parent="UI"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MiniMap" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+[node name="MiniMap" type="SubViewport" parent="UI/MiniMap"]
 handle_input_locally = false
 size = Vector2i(300, 200)
 render_target_update_mode = 4
 script = ExtResource("3_62cml")
 
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/MiniMap"]
-zoom = Vector2(0.25, 0.25)
+[node name="Camera2D" type="Camera2D" parent="UI/MiniMap/MiniMap"]
+zoom = Vector2(0.1, 0.1)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer/MiniMap"]
-texture = ExtResource("2_kpjr5")
+[node name="Sprite2D" type="Sprite2D" parent="UI/MiniMap/MiniMap"]
+scale = Vector2(32.11, 32.11)
+texture = ExtResource("1_fv3wy")
+centered = false
+
+[node name="ResourceUI" type="Control" parent="UI"]
+layout_mode = 3
+anchor_left = 0.965278
+anchor_right = 1.0
+anchor_bottom = 0.0617284
+offset_left = -62.0
+offset_right = -62.0
+grow_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_x4jjk")
+metadata/_edit_use_anchors_ = true
+
+[node name="ResourceContainer" type="HBoxContainer" parent="UI/ResourceUI"]
+layout_direction = 3
+layout_mode = 0
+offset_left = -44.0
+offset_right = 37.0
+offset_bottom = 23.0
+alignment = 2
+
+[node name="GoldContainer" type="HBoxContainer" parent="UI/ResourceUI/ResourceContainer"]
+layout_mode = 2
+
+[node name="GoldIcon" type="TextureRect" parent="UI/ResourceUI/ResourceContainer/GoldContainer"]
+layout_mode = 2
+texture = ExtResource("5_28d6c")
+
+[node name="GoldLabel" type="Label" parent="UI/ResourceUI/ResourceContainer/GoldContainer"]
+layout_mode = 2
+
+[node name="FoodContainer" type="HBoxContainer" parent="UI/ResourceUI/ResourceContainer"]
+layout_mode = 2
+
+[node name="FoodIcon" type="TextureRect" parent="UI/ResourceUI/ResourceContainer/FoodContainer"]
+layout_mode = 2
+texture = ExtResource("6_btqcy")
+
+[node name="FoodLabel" type="Label" parent="UI/ResourceUI/ResourceContainer/FoodContainer"]
+layout_mode = 2
+
+[node name="SailorsContainer" type="HBoxContainer" parent="UI/ResourceUI/ResourceContainer"]
+layout_mode = 2
+
+[node name="SailorsIcon" type="TextureRect" parent="UI/ResourceUI/ResourceContainer/SailorsContainer"]
+layout_mode = 2
+texture = ExtResource("7_53tag")
+
+[node name="SailorsLabel" type="Label" parent="UI/ResourceUI/ResourceContainer/SailorsContainer"]
+layout_mode = 2
+text = "
+"
