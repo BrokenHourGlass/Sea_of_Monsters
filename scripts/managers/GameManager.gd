@@ -18,7 +18,7 @@ class GameResource:
 		return amount
 
 var gold_resource = GameResource.new(100)
-var food_resource = GameResource.new(1)
+var food_resource = GameResource.new(5)
 var sailors_resource = GameResource.new(5)
 
 # Reference to the nodes
@@ -62,7 +62,3 @@ func _on_FoodTimer_timeout():
 	
 	adjust_food_timer()  # Re-adjust the timer after each timeout
 	update_ui()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
