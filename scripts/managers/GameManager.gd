@@ -18,8 +18,8 @@ class GameResource:
 		return amount
 
 var gold_resource = GameResource.new(100)
-var food_resource = GameResource.new(5)
-var sailors_resource = GameResource.new(5)
+var food_resource = GameResource.new(50)
+var sailors_resource = GameResource.new(20)
 
 # Reference to the nodes
 var resource_ui

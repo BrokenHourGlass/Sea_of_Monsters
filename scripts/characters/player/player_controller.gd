@@ -49,7 +49,6 @@ func update_move_speed():
 	var sailor_count = GameManager.sailors_resource.get_value()
 	max_move_speed = min(BASE_MOVE_SPEED + sailor_count * SPEED_INCREASE_PER_SAILOR, max_move_speed)
 	move_speed = max_move_speed * slider_value
-	print(move_speed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

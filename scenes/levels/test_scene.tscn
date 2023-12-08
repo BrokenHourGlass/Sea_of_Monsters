@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://w0m7s7a18vnt"]
+[gd_scene load_steps=11 format=3 uid="uid://w0m7s7a18vnt"]
 
 [ext_resource type="PackedScene" uid="uid://bbsh87mmkjnkm" path="res://scenes/characters/player_scene.tscn" id="1_2p3mv"]
 [ext_resource type="Texture2D" uid="uid://8e32f6axin8e" path="res://assets/placeholders/world_test_map.png" id="1_fv3wy"]
+[ext_resource type="Texture2D" uid="uid://dplgfonp5odfi" path="res://assets/placeholders/island_large.png" id="2_6lvy8"]
 [ext_resource type="Script" path="res://scripts/ui/MiniMap.gd" id="3_62cml"]
+[ext_resource type="Texture2D" uid="uid://b5r1uj7sja22v" path="res://assets/placeholders/island_small_1.png" id="3_wrm0u"]
+[ext_resource type="Texture2D" uid="uid://d3yr1m03t4km3" path="res://assets/placeholders/island_small_2.png" id="4_7w82k"]
 [ext_resource type="Script" path="res://scripts/ui/ResourceUI.gd" id="4_x4jjk"]
 [ext_resource type="Texture2D" uid="uid://bntfspum6mnpw" path="res://assets/placeholders/COIN.png" id="5_28d6c"]
 [ext_resource type="Texture2D" uid="uid://cecppp58h34cl" path="res://assets/placeholders/FOOD.png" id="6_btqcy"]
@@ -14,9 +17,25 @@
 position = Vector2(172, 293)
 
 [node name="Sprite2D" type="Sprite2D" parent="Map_container"]
+visible = false
 position = Vector2(20365.8, 18971)
 scale = Vector2(32.11, 32.11)
 texture = ExtResource("1_fv3wy")
+
+[node name="Large_island" type="Sprite2D" parent="Map_container"]
+position = Vector2(1795, 859)
+scale = Vector2(2, 2)
+texture = ExtResource("2_6lvy8")
+
+[node name="small_Island1" type="Sprite2D" parent="Map_container"]
+position = Vector2(601, 2119)
+scale = Vector2(2, 2)
+texture = ExtResource("3_wrm0u")
+
+[node name="Large_island3" type="Sprite2D" parent="Map_container"]
+position = Vector2(2495, 2689)
+scale = Vector2(2, 2)
+texture = ExtResource("4_7w82k")
 
 [node name="Player_container" parent="." instance=ExtResource("1_2p3mv")]
 
