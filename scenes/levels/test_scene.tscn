@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://w0m7s7a18vnt"]
+[gd_scene load_steps=17 format=3 uid="uid://w0m7s7a18vnt"]
 
 [ext_resource type="PackedScene" uid="uid://bbsh87mmkjnkm" path="res://scenes/characters/player_scene.tscn" id="1_2p3mv"]
 [ext_resource type="Texture2D" uid="uid://8e32f6axin8e" path="res://assets/placeholders/world_test_map.png" id="1_fv3wy"]
@@ -10,6 +10,62 @@
 [ext_resource type="Texture2D" uid="uid://bntfspum6mnpw" path="res://assets/placeholders/COIN.png" id="5_28d6c"]
 [ext_resource type="Texture2D" uid="uid://cecppp58h34cl" path="res://assets/placeholders/FOOD.png" id="6_btqcy"]
 [ext_resource type="Texture2D" uid="uid://bg1wd3njmmad7" path="res://assets/placeholders/SAILORS.png" id="7_53tag"]
+[ext_resource type="Script" path="res://scripts/ui/function_panel.gd" id="11_cdq4g"]
+[ext_resource type="Texture2D" uid="uid://nme6hmglumpv" path="res://assets/icons/arrow_direction_black.png" id="11_smsr1"]
+
+[sub_resource type="Animation" id="Animation_7qjiq"]
+resource_name = "SlideIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(208, 625), Vector2(208, 347)]
+}
+
+[sub_resource type="Animation" id="Animation_kytf7"]
+resource_name = "SlideOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(208, 347), Vector2(208, 625)]
+}
+
+[sub_resource type="Animation" id="Animation_rl6pe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(208, 625)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w1ekk"]
+_data = {
+"RESET": SubResource("Animation_rl6pe"),
+"SlideIn": SubResource("Animation_7qjiq"),
+"SlideOut": SubResource("Animation_kytf7")
+}
 
 [node name="test_scene" type="Node"]
 
@@ -110,3 +166,66 @@ texture = ExtResource("7_53tag")
 layout_mode = 2
 text = "
 "
+
+[node name="function_panel" type="Panel" parent="UI"]
+offset_left = 208.0
+offset_top = 625.0
+offset_right = 996.0
+offset_bottom = 941.999
+script = ExtResource("11_cdq4g")
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="UI/function_panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035533
+anchor_top = 0.0788644
+anchor_right = 0.0456853
+anchor_bottom = 0.104101
+offset_right = 67.0
+offset_bottom = 67.0
+text = "Map"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="UI/function_panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0926396
+anchor_top = -0.0189274
+anchor_right = 0.102792
+anchor_bottom = 0.00630915
+offset_left = 58.0
+offset_top = 31.0
+offset_right = 125.0
+offset_bottom = 98.0
+text = "inventory"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="UI/function_panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0926396
+anchor_top = -0.0189274
+anchor_right = 0.102792
+anchor_bottom = 0.00630915
+offset_left = 161.0
+offset_top = 31.0
+offset_right = 236.0
+offset_bottom = 98.0
+text = "Journal"
+metadata/_edit_use_anchors_ = true
+
+[node name="ArrowDirectionBlack" type="Button" parent="UI/function_panel"]
+layout_mode = 0
+offset_left = 393.977
+offset_top = 2.0
+offset_right = 1227.98
+offset_bottom = 423.0
+scale = Vector2(0.0466102, 0.0466102)
+icon = ExtResource("11_smsr1")
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/function_panel"]
+libraries = {
+"": SubResource("AnimationLibrary_w1ekk")
+}
